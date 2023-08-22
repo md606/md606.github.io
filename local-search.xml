@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>如何搭建MC服务器（Ubuntu版）</title>
+    <link href="/2023/07/26/MC_Server/"/>
+    <url>/2023/07/26/MC_Server/</url>
+    
+    <content type="html"><![CDATA[<p>注：本文以1.20.1版为例</p><h2 id="0、准备工作"><a href="#0、准备工作" class="headerlink" title="0、准备工作"></a>0、准备工作</h2><p>先在Ubuntu上执行该命令，目的是创建一个专门用于MC服务器的文件夹：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> ~/mc_server &amp;&amp; <span class="hljs-built_in">cd</span> ~/mc_server<br></code></pre></td></tr></table></figure><h2 id="1、获取Fabric端"><a href="#1、获取Fabric端" class="headerlink" title="1、获取Fabric端"></a>1、获取Fabric端</h2><p>访问<a href="https://fabricmc.net/use/server">Fabric官网</a></p><p>将红色框内的命令复制到Ubuntu并执行</p><p><img src="https://s3.bmp.ovh/imgs/2023/07/26/cb0af7f0792b685d.png" alt="image-20230726145415496"></p><h2 id="2、检查是否有Java环境"><a href="#2、检查是否有Java环境" class="headerlink" title="2、检查是否有Java环境"></a>2、检查是否有Java环境</h2><p>Ubuntu上输入<code>java -version</code>，查看Java版本，若版本低于17，或未安装，则使用如下命令安装Java：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt update <br>sudo apt install openjdk-17-jdk<br></code></pre></td></tr></table></figure><p>若下载缓慢，请自行百度Ubuntu换源教程</p><h2 id="3、开服"><a href="#3、开服" class="headerlink" title="3、开服"></a>3、开服</h2><p>执行以下命令：（jar文件的名字可能不一样）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ~/mc_server<br>java -jar jar<br></code></pre></td></tr></table></figure><p>命令执行完后，会提示要你遵守EULA协议，输入<code>nano eula.txt</code>并将<code>false</code>改为<code>true</code>，然后按<code>Ctrl+X</code>，按<code>Y</code>，回车保存</p><p>此时再次开服，注意命令有变化：（<code>-Xmx4G</code>请按实际情况填写，一般不超过8G，大型模组服16G也完全够用）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">java -Xms512M -Xmx4G -jar jar nogui<br></code></pre></td></tr></table></figure><p>当你看到<code>Done!</code>字样时便开服成功了</p><p>输入stop关服</p><h2 id="4、修改服务器配置"><a href="#4、修改服务器配置" class="headerlink" title="4、修改服务器配置"></a>4、修改服务器配置</h2><p>在<code>server.properties</code>中，建议修改如下部分：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">level-seed=123456789（原来为空）（种子）<br>motd=A Minecraft Server（服务器介绍，在多人游戏界面展示）<br>difficulty=hard（原来为easy）（修改难度为困难）<br>max-players=20（修改最大玩家数）<br>online-mode=<span class="hljs-literal">false</span>（原来为<span class="hljs-literal">true</span>）（关闭正版验证）<br>spawn-protection=0（原来为16）（关闭出生点保护，不然出生点方块挖不了）<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+      <category>游戏</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>我的世界</tag>
+      
+      <tag>Ubuntu</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>WPF基础笔记</title>
+    <link href="/2023/06/30/WPF_Learning/"/>
+    <url>/2023/06/30/WPF_Learning/</url>
+    
+    <content type="html"><![CDATA[<h3 id="注意：本文大部分内容为B站视频-WPF基础入门视频-的学习笔记，有条件者可以去三连，个人认为讲的不错"><a href="#注意：本文大部分内容为B站视频-WPF基础入门视频-的学习笔记，有条件者可以去三连，个人认为讲的不错" class="headerlink" title="注意：本文大部分内容为B站视频 WPF基础入门视频 的学习笔记，有条件者可以去三连，个人认为讲的不错"></a>注意：本文大部分内容为B站视频 <a href="https://www.bilibili.com/video/BV1mJ411F7zG">WPF基础入门视频</a> 的学习笔记，有条件者可以去三连，个人认为讲的不错</h3><h2 id="零、Visual-Studio常用快捷键"><a href="#零、Visual-Studio常用快捷键" class="headerlink" title="零、Visual Studio常用快捷键"></a>零、Visual Studio常用快捷键</h2><ul><li>注释：选中代码，按<code>Ctrl+K+C</code>，注意<code>Ctrl</code>不要松（所有快捷键都是）</li><li>取消注释：同上，不过变成<code>Ctrl+K+U</code></li><li>格式化代码（整理代码）：<code>Ctrl+K+F</code></li></ul><h1 id="一、WPF布局容器"><a href="#一、WPF布局容器" class="headerlink" title="一、WPF布局容器"></a>一、WPF布局容器</h1><h2 id="1-StackPanel"><a href="#1-StackPanel" class="headerlink" title="1. StackPanel"></a>1. StackPanel</h2><p>水平或垂直排列元素、<code>Orientation</code>属性分别: <code>Horizontal</code>(水平) &#x2F; <code>Vertical</code>(垂直)</p><p>默认垂直排列</p><p>元素默认居中（如图）</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c#">&lt;StackPanel Orientation=<span class="hljs-string">&quot;Horizontal&quot;</span>&gt;<br>    &lt;Button Width=<span class="hljs-string">&quot;100&quot;</span> Height=<span class="hljs-string">&quot;40&quot;</span> /&gt;<br>    &lt;Button Width=<span class="hljs-string">&quot;100&quot;</span> Height=<span class="hljs-string">&quot;40&quot;</span> /&gt;<br>    &lt;Button Width=<span class="hljs-string">&quot;100&quot;</span> Height=<span class="hljs-string">&quot;40&quot;</span> /&gt;<br>&lt;/StackPanel&gt;<br></code></pre></td></tr></table></figure><p><img src="https://s3.bmp.ovh/imgs/2023/06/30/480f71da1ba94558.png" alt="image-20230630135059412"></p><h2 id="2-WrapPanel"><a href="#2-WrapPanel" class="headerlink" title="2. WrapPanel"></a>2. WrapPanel</h2><p>水平或垂直排列元素、针对剩余空间不足会进行换行或换列进行排列</p><p>默认水平排列</p><p>元素默认不居中（如图为从上往下）</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c#">&lt;WrapPanel Orientation=<span class="hljs-string">&quot;Horizontal&quot;</span>&gt;<br>    &lt;Button Width=<span class="hljs-string">&quot;100&quot;</span> Height=<span class="hljs-string">&quot;40&quot;</span> /&gt;<br>    &lt;Button Width=<span class="hljs-string">&quot;100&quot;</span> Height=<span class="hljs-string">&quot;40&quot;</span> /&gt;<br>    &lt;Button Width=<span class="hljs-string">&quot;100&quot;</span> Height=<span class="hljs-string">&quot;40&quot;</span> /&gt;<br>    &lt;Button Width=<span class="hljs-string">&quot;100&quot;</span> Height=<span class="hljs-string">&quot;40&quot;</span> /&gt;<br>    &lt;Button Width=<span class="hljs-string">&quot;100&quot;</span> Height=<span class="hljs-string">&quot;40&quot;</span> /&gt;<br>&lt;/WrapPanel&gt;<br></code></pre></td></tr></table></figure><p><img src="https://s3.bmp.ovh/imgs/2023/06/30/ef71bffc9761c4ca.png" alt="image-20230630135309494"></p><h2 id="3-DockPanel"><a href="#3-DockPanel" class="headerlink" title="3. DockPanel"></a>3. DockPanel</h2><p>根据容器的边界、元素进行Dock.Top、Left、Right、Bottom设置</p><p><strong>最后一个元素是否占满剩余空间，<code>LastChildFill</code>属性分别为<code>True</code>和<code>False</code></strong></p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c#">&lt;DockPanel LastChildFill=<span class="hljs-string">&quot;False&quot;</span>&gt;<br>    &lt;Button Width=<span class="hljs-string">&quot;100&quot;</span> Height=<span class="hljs-string">&quot;40&quot;</span> DockPanel.Dock=<span class="hljs-string">&quot;Left&quot;</span>/&gt;<br>    &lt;Button Width=<span class="hljs-string">&quot;100&quot;</span> Height=<span class="hljs-string">&quot;40&quot;</span> DockPanel.Dock=<span class="hljs-string">&quot;Top&quot;</span>/&gt;<br>    &lt;Button Width=<span class="hljs-string">&quot;100&quot;</span> Height=<span class="hljs-string">&quot;40&quot;</span> DockPanel.Dock=<span class="hljs-string">&quot;Right&quot;</span>/&gt;<br>    &lt;Button Width=<span class="hljs-string">&quot;100&quot;</span> Height=<span class="hljs-string">&quot;40&quot;</span> DockPanel.Dock=<span class="hljs-string">&quot;Bottom&quot;</span>/&gt;<br>&lt;/DockPanel&gt;<br></code></pre></td></tr></table></figure><p><img src="https://s3.bmp.ovh/imgs/2023/06/30/ee3ca9aa1f41b2fa.png" alt="image-20230630135827040"></p><h2 id="4-Grid"><a href="#4-Grid" class="headerlink" title="4. Grid"></a>4. Grid</h2><p>类似table表格、可灵活设置行列并放置控件元素、比较常用，<code>RowDefinition</code>为行，<code>ColumnDefinitions</code>为列</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c#">&lt;Grid&gt; <span class="hljs-comment">// 设置为两行两列</span><br>    &lt;Grid.RowDefinitions&gt;<br>        &lt;RowDefinition/&gt;<br>        &lt;RowDefinition/&gt;<br>    &lt;/Grid.RowDefinitions&gt;<br>    &lt;Grid.ColumnDefinitions&gt;<br>        &lt;ColumnDefinition/&gt;<br>        &lt;ColumnDefinition/&gt;<br>    &lt;/Grid.ColumnDefinitions&gt;<br>    &lt;Border Background=<span class="hljs-string">&quot;Red&quot;</span>/&gt;<br>    &lt;Border Grid.Column=<span class="hljs-string">&quot;1&quot;</span> Background=<span class="hljs-string">&quot;Blue&quot;</span>/&gt;<br>    &lt;Border Grid.Row=<span class="hljs-string">&quot;1&quot;</span> Grid.Column=<span class="hljs-string">&quot;1&quot;</span> Background=<span class="hljs-string">&quot;Green&quot;</span>/&gt;<br>    &lt;Border Grid.Row=<span class="hljs-string">&quot;1&quot;</span> Background=<span class="hljs-string">&quot;Yellow&quot;</span>/&gt;<br>&lt;/Grid&gt;<br></code></pre></td></tr></table></figure><p><img src="https://s3.bmp.ovh/imgs/2023/06/30/fef800bd6a79ed19.png" alt="image-20230630141135943"></p><p>定义行和列时可以设置高和宽，当行的<code>Height=&quot;auto&quot;</code>时，行的高度将由其中的元素决定</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c#">&lt;Grid&gt;<br>    &lt;Grid.RowDefinitions&gt;<br>        &lt;RowDefinition Height=<span class="hljs-string">&quot;auto&quot;</span>/&gt;<br>        &lt;RowDefinition/&gt;<br>    &lt;/Grid.RowDefinitions&gt;<br>    &lt;Grid.ColumnDefinitions&gt;<br>        &lt;ColumnDefinition/&gt;<br>        &lt;ColumnDefinition/&gt;<br>    &lt;/Grid.ColumnDefinitions&gt;<br>    &lt;Border Background=<span class="hljs-string">&quot;Red&quot;</span>/&gt;<br>    &lt;Border Grid.Column=<span class="hljs-string">&quot;1&quot;</span> Background=<span class="hljs-string">&quot;Blue&quot;</span>/&gt;<br>    &lt;Border Grid.Row=<span class="hljs-string">&quot;1&quot;</span> Grid.Column=<span class="hljs-string">&quot;1&quot;</span> Background=<span class="hljs-string">&quot;Green&quot;</span>/&gt;<br>    &lt;Border Grid.Row=<span class="hljs-string">&quot;1&quot;</span> Background=<span class="hljs-string">&quot;Yellow&quot;</span>/&gt;<br>    &lt;Button Height=<span class="hljs-string">&quot;40&quot;</span>&gt;Click Me&lt;/Button&gt;<br>&lt;/Grid&gt;<br></code></pre></td></tr></table></figure><p><img src="https://s3.bmp.ovh/imgs/2023/06/30/c0d6b508cb61fefc.png" alt="image-20230630141855719"></p><h2 id="5-UniformGrid"><a href="#5-UniformGrid" class="headerlink" title="5. UniformGrid"></a>5. UniformGrid</h2><p>指定行和列的数量, 均分有限的容器空间</p><h2 id="6-Canvas"><a href="#6-Canvas" class="headerlink" title="6. Canvas"></a>6. Canvas</h2><p>使用固定的坐标设置元素的位置、不具备锚定停靠等功能。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>笔记</category>
+      
+      <category>WPF</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>笔记</tag>
+      
+      <tag>记录</tag>
+      
+      <tag>WPF</tag>
+      
+      <tag>UI</tag>
+      
+      <tag>Windows</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>如何查找资源, 以及作者的资源分享</title>
+    <link href="/2023/06/17/resource/"/>
+    <url>/2023/06/17/resource/</url>
+    
+    <content type="html"><![CDATA[<p><strong>注意：本文所分享的资源网站与文章作者无关，学习资源下载后请在24小时内删除</strong></p><h2 id="一、查找资源"><a href="#一、查找资源" class="headerlink" title="一、查找资源"></a>一、查找资源</h2><h3 id="1、搜索引擎"><a href="#1、搜索引擎" class="headerlink" title="1、搜索引擎"></a>1、搜索引擎</h3><p>利用Bing和Google（需要魔法）等搜索引擎，尽量不要使用百度，可能会屏蔽关键词</p><h3 id="2、贴吧、网站、论坛"><a href="#2、贴吧、网站、论坛" class="headerlink" title="2、贴吧、网站、论坛"></a>2、贴吧、网站、论坛</h3><p><a href="https://tieba.baidu.com/">百度贴吧</a> <a href="https://52pojie.cn/">吾爱破解</a> <a href="https://blog.csdn.net/">CSDN</a> <a href="https://www.bilibili.com/">bilibili</a></p><h3 id="3、微信、qq、朋友分享"><a href="#3、微信、qq、朋友分享" class="headerlink" title="3、微信、qq、朋友分享"></a>3、微信、qq、朋友分享</h3><h2 id="二、作者的资源分享"><a href="#二、作者的资源分享" class="headerlink" title="二、作者的资源分享"></a>二、作者的资源分享</h2><ul><li>聚合：<a href="https://www.iiice.cn/#/">下次一定</a> </li><li>游戏：[FlySheep](<a href="https://www.flysheep6.com/">flysheep资源避难所 (flysheep6.com)</a>) [FlySheep LITE](<a href="http://flysheep.ysepan.com/">flysheep资源避难所 (ysepan.com)</a>) <a href="https://www.kxdw.com/soft/44918.html">pcstory(官网难访问 提供纯净安装包)</a></li><li>软件：<a href="https://sixyin.com/">六音软件合集</a> <a href="https://www.aliyundrive.com/s/FMsfp2nzGJZ">Adobe全家桶</a></li><li>影视：<a href="https://www.cupfox.app/">茶杯狐 Cupfox - 努力让找电影变得简单</a> （有广告）</li><li>图片：<a href="https://bz.zzzmh.cn/index">极简壁纸（推荐）</a> <a href="https://www.123rf.com.cn/">123RF图库（需登录）</a> <a href="https://www.iconfont.cn/">iconfont-阿里巴巴矢量图标库</a> <a href="https://www.pexels.com/zh-cn/">pexels（推荐）</a></li><li>其他：<a href="https://next.itellyou.cn/Original/">系统镜像 需登录</a> <a href="https://mirror.tuna.tsinghua.edu.cn/">清华大学开源软件镜像站</a></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>资源</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>资源</tag>
+      
+      <tag>软件</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>nginx反向代理详细教程（Centos-yum版）</title>
+    <link href="/2023/04/21/nginx_centos_yum/"/>
+    <url>/2023/04/21/nginx_centos_yum/</url>
+    
+    <content type="html"><![CDATA[<h3 id="1、安装nginx"><a href="#1、安装nginx" class="headerlink" title="1、安装nginx"></a>1、安装nginx</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">yum install nginx -y<br>nginx<br></code></pre></td></tr></table></figure><p>现在打开浏览器，输入服务器ip，可以看到nginx的默认页面</p><h3 id="2、编辑配置文件"><a href="#2、编辑配置文件" class="headerlink" title="2、编辑配置文件"></a>2、编辑配置文件</h3><p>使用vim编辑器，没有安装vim可以用<code>yum install vim -y</code>安装</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim /etc/nginx/nginx.conf<br></code></pre></td></tr></table></figure><p>把<code>nginx.conf</code>中 server 改为以下模样（按<code>i</code>进入编辑模式，左下角会出现<code>-- INSERT --</code>，用方向键移动光标）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">server &#123;<br>    listen 80;<br>    server_name _;<br>    index  index.php index.html index.htm;<br><br>    location / &#123;<br>        proxy_pass http://127.0.0.1:3000/; <span class="hljs-comment"># 将3000更改为你要反代的端口</span><br>        proxy_set_header Host <span class="hljs-variable">$proxy_host</span>;<br>        proxy_set_header X-Real-IP <span class="hljs-variable">$remote_addr</span>;<br>        proxy_set_header X-Forwarded-For <span class="hljs-variable">$proxy_add_x_forwarded_for</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p>按<code>Esc</code>退出编辑模式，按<code>:wq</code>回车保存，输入：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nginx -s reload<br></code></pre></td></tr></table></figure><p>刷新浏览器，已经反代成功了</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端</category>
+      
+      <category>Nginx</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>Nginx</tag>
+      
+      <tag>前端</tag>
+      
+      <tag>Centos</tag>
+      
+      <tag>Linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
