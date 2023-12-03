@@ -24,13 +24,15 @@
 <meta property="og:description" content="1、使用rufus将arch镜像烧录至u盘，u盘最好16G以上，8G应该也行2、进入磁盘管理，将第二块磁盘压缩出来20480M3、确保EFI分区大于200M，否则进pe调整至大于200M4、进入Arch的U盘 WiFi方式连接用户：执行rfkill list，若soft blocked为yes则表示已锁定，输入rfkill unblock wifi解锁，再执行rfkill list则显示no  启">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-10-06T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-10-09T15:20:58.407Z">
+<meta property="article:modified_time" content="2023-12-03T11:51:28.079Z">
 <meta property="article:author" content="MapleDance">
 <meta property="article:tag" content="教程">
-<meta property="article:tag" content="Windows">
 <meta property="article:tag" content="Arch Linux">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary_large_image">
   
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
   
   
   <title>Arch Linux + Windows11 双系统安装详细教程 - md606</title>
@@ -362,7 +364,7 @@
 <li><p>在启动台找到“fcitx5配置”，打开，在右侧“可用输入法”找到<code>键盘-汉语</code>，选中后点左箭头，然后找到<code>拼音</code>进行同样操作，同时将自带的英语键盘点去右边，点应用，点yes</p>
 </li>
 <li><p>切换系统语言至中文：打开设置，左上方搜索language，点开<code>Region&amp;Language</code>，右侧调为汉语，然后点右上方的logout即可。重新登录后弹出是否更改文件夹名称，建议不改</p>
-<h3 id="以上内容来自B站UP主，在下KiKi咯-BV1XY4y1f77S"><a href="#以上内容来自B站UP主，在下KiKi咯-BV1XY4y1f77S" class="headerlink" title="以上内容来自B站UP主，在下KiKi咯  BV1XY4y1f77S"></a>以上内容来自B站UP主，在下KiKi咯  BV1XY4y1f77S</h3></li>
+<h3 id="原视频来自B站UP主，在下KiKi咯-BV1XY4y1f77S"><a href="#原视频来自B站UP主，在下KiKi咯-BV1XY4y1f77S" class="headerlink" title="原视频来自B站UP主，在下KiKi咯  BV1XY4y1f77S"></a>原视频来自B站UP主，在下KiKi咯  BV1XY4y1f77S</h3><h3 id="本文为总结视频后的笔记，作者为MapleDC自己"><a href="#本文为总结视频后的笔记，作者为MapleDC自己" class="headerlink" title="本文为总结视频后的笔记，作者为MapleDC自己"></a>本文为总结视频后的笔记，作者为MapleDC自己</h3></li>
 </ul>
 </li>
 </ul>
@@ -384,12 +386,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%B3%BB%E7%BB%9F/" class="category-chain-item">系统</a>
+  <a href="/categories/IT/" class="category-chain-item">IT</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E7%B3%BB%E7%BB%9F/Linux/" class="category-chain-item">Linux</a>
+  <a href="/categories/IT/Linux/" class="category-chain-item">Linux</a>
   
   
 
@@ -408,9 +410,9 @@
       
         <a href="/tags/%E6%95%99%E7%A8%8B/">#教程</a>
       
-        <a href="/tags/Windows/">#Windows</a>
-      
         <a href="/tags/Arch-Linux/">#Arch Linux</a>
+      
+        <a href="/tags/Linux/">#Linux</a>
       
     </div>
   
@@ -575,9 +577,33 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://github.com/md606" target="_blank" rel="nofollow noopener"><span>Maple</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/md606" target="_blank" rel="nofollow noopener"><span>Dance</span></a> 
+       <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Themes</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
     </div>
   
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
   
   
   
@@ -724,6 +750,8 @@
   <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
